@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grind Factory</title>
+    <link rel="stylesheet" href="main.css/common.css">
+    <link rel="stylesheet" href="main.css/home.css">
+    <link rel="stylesheet" href="main.css/about.css">
+    <link rel="stylesheet" href="main.css/services.css">
+    <link rel="stylesheet" href="main.css/membership.css">
+    <link rel="stylesheet" href="main.css/trainers.css">
+    <link rel="stylesheet" href="main.css/testimonials.css">
+    <link rel="stylesheet" href="main.css/offers.css">
+    <link rel="stylesheet" href="main.css/contact.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-image: url("images/img-3.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        section {
+            padding: 100px 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Home Section -->
+    <section class="home-section" id="home">
+        <div class="background-layer"></div>
+    <div class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="grind">GRIND</span> <span class="factory">FACTORY</span>
+            </h1>
+            <p class="tagline">🏋️ PUSH HARDER. TRAIN STRONGER. RISE ABOVE. 💪</p> 
+            <p class="quote">MORE THAN A GYM, IT'S A LIFESTYLE!</p>
+            <button class="cta-button" id="startGrindBtn">🔥 Start Your Grind Today</button>
+        </div>
+    </div>
+    </section>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/img1.jpeg" alt="Logo">
+        </div>
+        <div class="nav-container">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#membership">Membership</a></li>
+            <li><a href="#trainers">Trainers</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#offers">Offers</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        </div>
+        <div class="nav-controls">
+            <button class="nav-scroll-btn" id="scrollLeft">&lt;</button>
+            <button class="nav-scroll-btn" id="scrollRight">&gt;</button>
+            <button id="logoutBtn" style="display:none; margin-left: 15px; padding: 8px 15px; background-color: #ff5722; color: white; border: none; border-radius: 4px; cursor: pointer;">Logout</button>
+        </div>
+    </nav>
+       <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="background-layer"></div>
+        <div class="about-container">
+
+            <!-- Left Image -->
+            <div class="about-image">
+                <img src="images/img-2.png" alt="Gym Equipment">
+            </div>
+
+            <!-- Text Content -->
+            <div class="about-content">
+                <h1 class="about-title">GRIND FACTORY</h1>
+                <p class="about-text">
+                  Welcome to <span class="fire-yellow">GRIND FACTORY</span>, where <span class="strong-orange">strength</span>, 
+                  <span class="white-text">discipline</span>, and <span class="fire-yellow">dedication</span> come together to forge champions. 
+                  We are more than just a gym—we are a <span class="strong-orange">community</span> built on pushing limits, breaking barriers, and transforming lives.<br><br>
+          
+                  At <span class="fire-yellow">GRIND FACTORY</span>, fitness is not just about lifting weights; it's about 
+                  <span class="strong-orange">mental resilience</span>, <span class="white-text">self-improvement</span>, and 
+                  <span class="fire-yellow">relentless commitment</span> to becoming the best version of yourself. 
+                  Whether you are a beginner or a seasoned athlete, our <span class="strong-orange">state-of-the-art equipment</span>, 
+                  expert trainers, and motivating environment will help you achieve your goals. <br><br>
+          
+                  Join the <span class="strong-orange">GRIND</span>, embrace the <span class="fire-yellow">challenge</span>, and become 
+                  <span class="white-text">unstoppable</span>. This is where <span class="strong-orange">strength is built</span>, 
+                  <span class="fire-yellow">limits are shattered</span>, and <span class="white-text">legends are made</span>.  
+                  <span class="fire-yellow">Welcome to the factory of greatness!</span> 💪🔥
+                </p>
+              </div>
+            <!-- Right Image -->
+            <div class="about-image">
+                <img src="images/img-6.jpg" alt="Gym Training">
+            </div>
+
+        </div>
+    </section>
+<!-- Services Section -->
+<section id="services" class="services-section">
+    <h2 class="services-title">Our Training Services</h2>
+    <div class="services-container">
+        <!-- Service 1 -->
+        <div class="service-card">
+            <img src="images/img-12.jpg" alt="Strength Training">
+            <div class="service-overlay">
+                <h3>Strength Training</h3>
+                <p>Build muscle and increase power with expert strength training programs.</p>
+            </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card">
+            <img src="images/img-5.jpg" alt="Cardio Training">
+            <div class="service-overlay">
+                <h3>Cardio Training</h3>
+                <p>Boost endurance and burn calories with high-energy cardio workouts.</p>
+            </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card">
+            <img src="images/img-7.jpg" alt="Weight Gain">
+            <div class="service-overlay">
+                <h3>Weight Gain</h3>
+                <p>Personalized programs to help you gain healthy weight effectively.</p>
+            </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card">
+            <img src="images/img-15.jpg" alt="Weight Loss">
+            <div class="service-overlay">
+                <h3>Weight Loss</h3>
+                <p>Sustainable weight loss strategies tailored to your body type.</p>
+            </div>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="service-card">
+            <img src="images/img-16.jpg" alt="Calisthenics">
+            <div class="service-overlay">
+                <h3>Calisthenics</h3>
+                <p>Master bodyweight exercises for flexibility and strength.</p>
+            </div>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="service-card">
+            <img src="images/img-18.jpg" alt="HIIT Training">
+            <div class="service-overlay">
+                <h3>HIIT Training</h3>
+                <p>Burn fat and build endurance with high-intensity exercises.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Membership Section -->
+<section id="membership" class="membership-section">
+    <h2 class="membership-title">Membership Plans</h2>
+    <div class="membership-cards">
+      <!-- Basic Plan -->
+      <div class="membership-card">
+        <h3>Basic</h3>
+        <p class="price">₹999 / month</p>
+        <ul>
+          <li>Full Gym Access</li>
+          <li>Standard Equipment Usage</li>
+          <li>Locker Facility</li>
+          <li>Weekly Progress Check</li>
+          <li>Group Training (Once a week)</li>
+        </ul>
+        <!-- <a href="#" class="join-btn">Join Now</a> -->
+      </div>
+  
+      <!-- Premium Plan -->
+      <div class="membership-card">
+        <h3>Premium</h3>
+        <p class="price">₹1499 / month</p>
+        <ul>
+          <li>All Basic Features</li>
+          <li>Dedicated Personal Trainer</li>
+          <li>Customized Workout Plan</li>
+          <li>Monthly Body Analysis</li>
+          <li>2 Group Classes per Week</li>
+          <li>Diet & Nutrition Plan</li>
+        </ul>
+       <!-- <a href="#" class="join-btn">Join Now</a> -->
+      </div>
+  
+      <!-- VIP Plan -->
+      <div class="membership-card">
+        <h3>VIP</h3>
+        <p class="price">₹1999 / month</p>
+        <ul>
+          <li>All Premium Features</li>
+          <li>Unlimited Group Classes</li>
+          <li>1-on-1 Personal Coaching</li>
+          <li>Weekly Progress Reports</li>
+          <li>24/7 Gym Access</li>
+          <li>Free Gym Merchandise</li>
+          <li>Early Access to Events</li>
+        </ul>
+        <!--<a href="#" class="join-btn">Join Now</a>-->
+      </div>
+    </div>
+    <!-- Join Now Button -->
+<button id="openModalBtn">Join Now</button>
+
+<!-- Modal Overlay -->
+<div id="membershipModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+
+    <!-- Google Form -->
+    <form id="membershipForm" action="http://localhost:5500/membership" method="POST">
+      
+      <h2>Join Our Membership</h2>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="hidden" name="user_id" id="membershipUserId">
+      <select name="plan_type" required>
+        <option value="" disabled selected>Select Plan</option>
+        <option value="Basic">Basic</option>
+        <option value="Premium">Premium</option>
+        <option value="VIP">VIP</option>
+      </select>
+      <textarea name="reason" placeholder="Why are you joining?" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Thank You Message -->
+    <div id="thankYouMsg" style="display:none; color: gold; text-align:center; padding: 20px;">
+      <h3>Thanks for joining! 💪<br>Your response has been recorded.</h3>
+    </div>
+  </div>
+</div>
+
+<!-- Hidden Iframe (to avoid redirect) -->
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+<section class="comparison-table">
+  <h2>Compare Our Plans</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Features</th>
+        <th>Basic</th>
+        <th>Premium</th>
+        <th>Elite</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>24/7 Access</td>
+        <td>✔️</td>
+        <td>✔️</td>
+        <td>✔️</td>
+      </tr>
+      <tr>
+        <td>Personal Trainer</td>
+        <td>❌</td>
+        <td>✔️</td>
+        <td>✔️</td>
+      </tr>
+      <tr>
+        <td>Diet Consultation</td>
+        <td>❌</td>
+        <td>✔️</td>
+        <td>✔️</td>
+      </tr>
+      <tr>
+        <td>Group Classes</td>
+        <td>✔️</td>
+        <td>✔️</td>
+        <td>✔️</td>
+      </tr>
+      <tr>
+        <td>Massage Therapy</td>
+        <td>❌</td>
+        <td>❌</td>
+        <td>✔️</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="membership-perks">
+  <h2>All Members Get</h2>
+  <ul>
+    <li>✅ Free Wi-Fi</li>
+    <li>✅ Locker Room Access</li>
+    <li>✅ Clean Showers</li>
+    <li>✅ Access to Mobile App</li>
+    <li>✅ Entry to Monthly Fitness Challenges</li>
+  </ul>
+
+<!-- Trainer 1 (CBum) Profile -->
+<section id="trainer1" class="trainer-profile-section">
+  <button class="close-profile-btn" onclick="goBack()">&times;</button>
+  <div class="trainer-profile-container">
+    <div class="trainer-video">
+      <video controls autoplay muted loop playsinline>
+        <source src="videos/cbum-6.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>      
+    </div>
+    <div class="trainer-details">
+      <h2>Chris Bumstead (CBum)</h2>
+      <p><strong>Bio:</strong> 5x Classic Physique Mr. Olympia Champion. Known for symmetry, discipline, and aesthetic perfection.</p>
+      <p><strong>Experience:</strong> IFBB Pro, Olympia veteran, fitness entrepreneur.</p>
+      <p><strong>Specialties:</strong> Classic Physique, hypertrophy, competition prep.</p>
+      <p><strong>Plans:</strong> Classic Bulk, Pose Coaching, Aesthetic Blueprint.</p>
+      <a href="https://www.instagram.com/cbum" target="_blank" class="instagram-btn">Follow on Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- Trainer 2 (Ramon Dino) Profile -->
+<section id="trainer2" class="trainer-profile-section">
+  <button class="close-profile-btn" onclick="goBack()">&times;</button>
+  <div class="trainer-profile-container">
+    <div class="trainer-video">
+      <video controls autoplay muted loop playsinline>
+        <source src="videos/ramon.7.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="trainer-details">
+      <h2>Ramon Dino</h2>
+      <p><strong>Bio:</strong> IFBB Pro Bodybuilder from Brazil, known for powerful leg development and conditioning.</p>
+      <p><strong>Experience:</strong> South American champ, Olympia contender.</p>
+      <p><strong>Specialties:</strong> Lower body training, symmetry enhancement, power moves.</p>
+      <p><strong>Plans:</strong> Dino Legs Program, Shred Stack, Dino Bulk Challenge.</p>
+      <a href="https://www.instagram.com/ramondinopro" target="_blank" class="instagram-btn">Follow on Instagram</a>
+    </div>
+  </div>
+</section>
+  <script>
+    // First modal
+    var joinModal = document.getElementById("joinModal");
+    var joinButtons = document.querySelectorAll(".join-btn");
+    var joinCloseBtn = document.querySelector(".close");
+  
+    if (joinButtons) {
+      joinButtons.forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault(); // Prevent page jump
+          joinModal.style.display = "block";
+        });
+      });
+    }
+  
+    if (joinCloseBtn) {
+      joinCloseBtn.onclick = function () {
+        joinModal.style.display = "none";
+      }
+    }
+  </script>
+  <script>
+    // Membership modal logic
+    document.addEventListener("DOMContentLoaded", function () {
+      var membershipModal = document.getElementById("membershipModal");
+      var openModalBtn = document.getElementById("openModalBtn");
+      var modalCloseBtn = document.querySelector(".close");
+      var membershipForm = document.getElementById("membershipForm");
+      var thankYouMsg = document.getElementById("thankYouMsg");
+    
+      if (openModalBtn) {
+        openModalBtn.onclick = function () {
+          membershipModal.style.display = "block";
+          membershipForm.style.display = "block";
+          thankYouMsg.style.display = "none";
+        };
+      }
+    
+      if (modalCloseBtn) {
+        modalCloseBtn.onclick = function () {
+          membershipModal.style.display = "none";
+        };
+      }
+  
+      window.onclick = function (event) {
+        if (event.target === membershipModal) {
+          membershipModal.style.display = "none";
+        }
+      };
+  
+      window.showThankYou = function () {
+        membershipForm.style.display = "none";
+        thankYouMsg.style.display = "block";
+        setTimeout(() => {
+          membershipModal.style.display = "none";
+        }, 3000);
+      };
+    });
+  </script>
+  <script src="script.js"></script>
+  
+<section id="trainers" class="trainers-section">
+  <h2 class="section-title">Meet Our Trainers</h2>
+  <div class="trainers-container">
+    <!-- CBum -->
+    <div class="trainer-card">
+      <div class="trainer-image">
+        <img src="images/cbum.jpg" alt="Chris Bumstead">
+      </div>
+      <div class="trainer-info">
+        <h3>Chris Bumstead (CBum)</h3>
+        <p>Classic Physique Champion</p>
+        <button class="know-more-btn" onclick="showTrainerProfile('trainer1')">Know More</button>
+        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/cbum" target="_blank">@cbum</a></p>
+      </div>
+    </div>
+
+    <!-- Ramon Dino -->
+    <div class="trainer-card">
+      <div class="trainer-image">
+        <img src="images/ramon.jpg" alt="Ramon Dino">
+      </div>
+      <div class="trainer-info">
+        <h3>Ramon Dino</h3>
+        <p>IFBB Pro Bodybuilder</p>
+        <button class="know-more-btn" onclick="showTrainerProfile('trainer2')">Know More</button>
+      <p><strong>Instagram:</strong> <a href="https://www.instagram.com/ramondinopro" target="_blank">@ramondinopro</a></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Login and Register Modal -->
+<div id="authModal" class="auth-modal">
+  <button class="close-auth-btn" id="closeAuthBtn">&times;</button>
+  <div class="auth-container">
+    <div class="auth-image">
+      <div class="auth-quote">
+        "The clock is ticking. Are you becoming the person you want to be?" - Greg Plitt
+      </div>
+    </div>
+    <div class="auth-forms">
+      <div class="auth-tabs">
+        <div class="auth-tab active" data-tab="login">Login</div>
+        <div class="auth-tab" data-tab="register">Register</div>
+      </div>
+      
+      <!-- Login Form -->
+      <form id="loginForm" class="auth-form active" action="http://localhost:5500/login" method="POST">
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" name="email" class="form-control" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" name="password" class="form-control" placeholder="Enter your password" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="auth-btn">Login</button>
+        </div>
+        <div class="form-footer">
+          <a href="#">Forgot Password?</a>
+        </div>
+        <div id="loginMessage" class="message-box"></div>
+        
+        <div class="social-login">
+          <p>Or login with</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </form>
+      
+      <!-- Register Form -->
+      <form id="registerForm" class="auth-form" action="http://localhost:5500/register" method="POST">
+        <div class="form-group">
+          <label for="registerName">Full Name</label>
+          <input type="text" id="registerName" name="name" class="form-control" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="registerEmail">Email</label>
+          <input type="email" id="registerEmail" name="email" class="form-control" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="registerPassword">Password</label>
+          <input type="password" id="registerPassword" name="password" class="form-control" placeholder="Create a password" required>
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" name="confirm_password" class="form-control" placeholder="Confirm your password" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="auth-btn">Create Account</button>
+        </div>
+        <div id="registerMessage" class="message-box"></div>
+        <div class="form-footer">
+          By registering, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials-section">
+  <!-- Decorative shapes -->
+  <div class="shape shape-1"></div>
+  <div class="shape shape-2"></div>
+  
+  <h2 class="section-title">Member Testimonials</h2>
+  <div class="testimonials-container">
+    
+    <!-- Left Testimonial -->
+    <div class="testimonial-card">
+      <div class="testimonial-image-container">
+        <div class="image-decoration"></div>
+        <img src="images/img-7.jpg" alt="John Smith" class="testimonial-image">
+      </div>
+      <div class="testimonial-content">
+        <h3 class="testimonial-name">John Smith</h3>
+        <p class="testimonial-role">Member since 2022</p>
+        <div class="testimonial-rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p class="testimonial-text">
+          Joining Grind Factory was a game-changer for me. The trainers are incredibly knowledgeable and 
+          push me to achieve my goals. Within just 3 months, I saw dramatic improvements in my strength and 
+          overall fitness. The community here is supportive and motivating. Definitely the best gym 
+          experience I've ever had!
+        </p>
+        <p class="testimonial-achievement">Lost 15kg and gained significant muscle mass</p>
+      </div>
+    </div>
+    
+    <!-- Right Testimonial -->
+    <div class="testimonial-card">
+      <div class="testimonial-image-container">
+        <div class="image-decoration"></div>
+        <img src="images/img-16.jpg" alt="Sarah Johnson" class="testimonial-image">
+      </div>
+      <div class="testimonial-content">
+        <h3 class="testimonial-name">Sarah Johnson</h3>
+        <p class="testimonial-role">Member since 2021</p>
+        <div class="testimonial-rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+        <p class="testimonial-text">
+          As someone who was intimidated by gyms, Grind Factory completely changed my perspective. 
+          The staff is friendly, the environment is welcoming, and the training programs are personalized 
+          to your needs. I've not only reached my fitness goals but also found a community that keeps me 
+          motivated. The facilities are top-notch and always clean!
+        </p>
+        <p class="testimonial-achievement">Completed first half-marathon after training at Grind Factory</p>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- Offers Section -->
+<section id="offers" class="offers-section">
+  <div class="offers-container">
+    <h2 class="section-title">EXCLUSIVE OFFERS</h2>
+    <p class="section-subtitle">Unlock Your Potential With Our Limited-Time Deals</p>
+    
+    <div class="offers-grid">
+      <!-- Featured Offer -->
+      <div class="offer-card featured-offer">
+        <div class="offer-badge">BEST VALUE</div>
+        <div class="offer-content">
+          <h3 class="offer-title">ANNUAL MEMBERSHIP BONUS</h3>
+          <div class="offer-divider"></div>
+          <p class="offer-description">
+            Pay for 12 months and get <span class="highlight">2 MONTHS FREE</span>. 
+            Access to all facilities, classes, and exclusive members-only events.
+          </p>
+          <div class="offer-price">
+            <span class="original-price">₹17,988</span>
+            <span class="discounted-price">₹14,990</span>
+            <span class="savings">Save ₹2,998</span>
+          </div>
+          <ul class="offer-benefits">
+            <li><i class="fas fa-check-circle"></i> 14 months for the price of 12</li>
+            <li><i class="fas fa-check-circle"></i> Free body composition analysis monthly</li>
+            <li><i class="fas fa-check-circle"></i> 4 free personal training sessions</li>
+            <li><i class="fas fa-check-circle"></i> Exclusive merchandise pack</li>
+            <li><i class="fas fa-check-circle"></i> Priority class booking</li>
+          </ul>
+          <button class="offer-button">CLAIM OFFER</button>
+        </div>
+        <div class="offer-timer">
+          <p>Limited time offer ends in:</p>
+          <div class="countdown" data-countdown="2024-07-30">
+            <div class="countdown-item"><span class="days">00</span><span class="label">Days</span></div>
+            <div class="countdown-item"><span class="hours">00</span><span class="label">Hours</span></div>
+            <div class="countdown-item"><span class="minutes">00</span><span class="label">Mins</span></div>
+            <div class="countdown-item"><span class="seconds">00</span><span class="label">Secs</span></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Regular Offers -->
+      <div class="offer-card">
+        <div class="offer-badge">HOT DEAL</div>
+        <div class="offer-content">
+          <h3 class="offer-title">NEW MEMBER SPECIAL</h3>
+          <div class="offer-divider"></div>
+          <p class="offer-description">
+            First-time members receive <span class="highlight">50% OFF</span> their first month plus a free fitness assessment.
+          </p>
+          <div class="offer-price">
+            <span class="original-price">₹1,499</span>
+            <span class="discounted-price">₹749</span>
+          </div>
+          <ul class="offer-benefits">
+            <li><i class="fas fa-check-circle"></i> 50% off first month membership</li>
+            <li><i class="fas fa-check-circle"></i> Free fitness assessment</li>
+            <li><i class="fas fa-check-circle"></i> Personalized workout plan</li>
+          </ul>
+          <button class="offer-button">CLAIM OFFER</button>
+        </div>
+      </div>
+      
+      <div class="offer-card">
+        <div class="offer-badge">POPULAR</div>
+        <div class="offer-content">
+          <h3 class="offer-title">BRING A FRIEND</h3>
+          <div class="offer-divider"></div>
+          <p class="offer-description">
+            Invite a friend and both get <span class="highlight">20% OFF</span> your next month's membership.
+          </p>
+          <div class="offer-price">
+            <span class="discounted-price">20% OFF</span>
+            <span class="savings">For you and your friend</span>
+          </div>
+          <ul class="offer-benefits">
+            <li><i class="fas fa-check-circle"></i> 20% off next month for you</li>
+            <li><i class="fas fa-check-circle"></i> 20% off first month for your friend</li>
+            <li><i class="fas fa-check-circle"></i> Free group training session together</li>
+          </ul>
+          <button class="offer-button">INVITE FRIEND</button>
+        </div>
+      </div>
+      
+      <div class="offer-card">
+        <div class="offer-content">
+          <h3 class="offer-title">STUDENT DISCOUNT</h3>
+          <div class="offer-divider"></div>
+          <p class="offer-description">
+            Valid student ID gets you <span class="highlight">25% OFF</span> any membership plan.
+          </p>
+          <div class="offer-price">
+            <span class="discounted-price">25% OFF</span>
+            <span class="savings">With valid student ID</span>
+          </div>
+          <ul class="offer-benefits">
+            <li><i class="fas fa-check-circle"></i> 25% off any membership type</li>
+            <li><i class="fas fa-check-circle"></i> Student-only workout sessions</li>
+            <li><i class="fas fa-check-circle"></i> Flexible timing around exams</li>
+          </ul>
+          <button class="offer-button">GET STUDENT DISCOUNT</button>
+        </div>
+      </div>
+      
+      <div class="offer-card">
+        <div class="offer-badge">LIMITED</div>
+        <div class="offer-content">
+          <h3 class="offer-title">TRANSFORMATION CHALLENGE</h3>
+          <div class="offer-divider"></div>
+          <p class="offer-description">
+            Join our 90-day transformation challenge and get <span class="highlight">FREE MEMBERSHIP</span> for 3 months if you meet your goals.
+          </p>
+          <div class="offer-price">
+            <span class="original-price">₹4,497</span>
+            <span class="discounted-price">Potentially FREE</span>
+          </div>
+          <ul class="offer-benefits">
+            <li><i class="fas fa-check-circle"></i> Weekly tracking and assessments</li>
+            <li><i class="fas fa-check-circle"></i> Customized nutrition plan</li>
+            <li><i class="fas fa-check-circle"></i> Free membership if goals are met</li>
+          </ul>
+          <button class="offer-button">ACCEPT CHALLENGE</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="corporate-offers">
+      <h3>CORPORATE & GROUP PACKAGES</h3>
+      <p>Special rates available for corporate teams and groups of 5 or more. Contact us for custom packages tailored to your needs.</p>
+      <button class="secondary-button">INQUIRE NOW</button>
+    </div>
+    
+    <div class="offers-note">
+      <p>* Terms and conditions apply. Offers cannot be combined with other promotions. All offers subject to change without notice.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+  <div class="contact-container">
+    <h2 class="section-title">GET IN TOUCH</h2>
+    <p class="section-subtitle">We're Here To Support Your Fitness Journey</p>
+    
+    <div class="contact-content">
+      <div class="contact-info">
+        <div class="info-card" style="cursor: pointer;">
+          <div class="info-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="info-content">
+            <h3>VISIT US</h3>
+            <p>123 Grind Street, Fitness Avenue</p>
+            <p>Hyderabad, India - 500032</p>
+          </div>
+        </div>
+        
+        <div class="info-card" style="cursor: pointer;">
+          <div class="info-icon">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <div class="info-content">
+            <h3>CALL US</h3>
+            <p>+91 98765 43210</p>
+            <p>+91 90123 45678</p>
+          </div>
+        </div>
+        
+        <div class="info-card" style="cursor: pointer;">
+          <div class="info-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="info-content">
+            <h3>EMAIL US</h3>
+            <p>info@grindfactory.com</p>
+            <p>support@grindfactory.com</p>
+          </div>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="info-content">
+            <h3>OPENING HOURS</h3>
+            <p>Monday - Friday: 5:00 AM - 11:00 PM</p>
+            <p>Weekends & Holidays: 6:00 AM - 10:00 PM</p>
+          </div>
+        </div>
+        
+        <div class="social-links">
+          <h3>CONNECT WITH US</h3>
+          <div class="social-icons">
+            <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.youtube.com" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="emergency-contact">
+          <h3>EMERGENCY LINE</h3>
+          <p>For immediate assistance during workout emergencies</p>
+          <a href="tel:+918001234567" class="emergency-number">1800-123-4567 (Toll Free)</a>
+        </div>
+      </div>
+      
+      <div class="contact-form-container">
+        <h3>SEND US A MESSAGE</h3>
+        <form id="contactForm" class="contact-form">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject" required>
+              <option value="" disabled selected>Select a subject</option>
+              <option value="membership">Membership Inquiry</option>
+              <option value="personal-training">Personal Training</option>
+              <option value="feedback">Feedback</option>
+              <option value="complaint">Complaint</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label class="checkbox-container">
+              <input type="checkbox" name="newsletter" id="newsletter">
+              <span class="checkmark"></span>
+              Subscribe to our newsletter for exclusive offers and fitness tips
+            </label>
+          </div>
+          
+          <button type="submit" class="submit-button">
+            <span>SEND MESSAGE</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="map-container">
+      <h3>FIND US</h3>
+      <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.4366595641456!2d78.38960121487933!3d17.393021788078513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb97b9d4b14e63%3A0xdbd95ad662c6e73d!2sGym%20Hyderabad%20Health%20Club!5e0!3m2!1sen!2sin!4v1653462798612!5m2!1sen!2sin" 
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <h2>GRIND FACTORY</h2>
+      <p>PUSH HARDER. TRAIN STRONGER. RISE ABOVE.</p>
+    </div>
+    <div class="footer-copyright">
+      <p>&copy; 2023 Grind Factory. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Login form submission
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+    const messageElement = document.getElementById('loginMessage');
+    
+    // Clear previous messages
+    messageElement.className = '';
+    messageElement.textContent = '';
+    
+    // Validate inputs
+    if (!email || !password) {
+        messageElement.className = 'error-message';
+        messageElement.textContent = 'Please enter both email and password.';
+        return;
+    }
+    
+    // Send login request to server
+    fetch('http://localhost:5500/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Store user info in localStorage
+            localStorage.setItem('user', JSON.stringify(data.user));
+            
+            messageElement.className = 'success-message';
+            messageElement.textContent = 'Login successful!';
+            
+            document.getElementById('loginForm').reset();
+            
+            // Show logout button and hide auth modal
+            document.getElementById('logoutBtn').style.display = 'block';
+            document.getElementById('authModal').style.display = 'none';
+            
+            // Redirect to dashboard
+            window.location.href = 'dashboard.html';
+        } else {
+            messageElement.className = 'error-message';
+            messageElement.textContent = data.message || 'Invalid email or password.';
+        }
+    })
+    .catch(error => {
+        console.error('Login error:', error);
+        messageElement.className = 'error-message';
+        messageElement.textContent = 'An error occurred. Please try again.';
+    });
+});
+
+// Logout button handler
+document.getElementById('logoutBtn').addEventListener('click', function() {
+    localStorage.removeItem('user');
+    document.getElementById('logoutBtn').style.display = 'none';
+    // Show auth modal again
+    document.getElementById('authModal').style.display = 'block';
+});
+
+// Check if user is already logged in
+document.addEventListener('DOMContentLoaded', function() {
+    const user = localStorage.getItem('user');
+    if (user) {
+        document.getElementById('logoutBtn').style.display = 'block';
+        document.getElementById('authModal').style.display = 'none';
+    }
+});
+</script>
+
+</body>
+</html>

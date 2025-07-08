@@ -1,0 +1,348 @@
+/* Dashboard Styles */
+:root {
+    --primary-color: #ff5722;
+    --primary-dark: #f4511e;
+    --secondary-color: #ff9800;
+    --dark-bg: #0a0a0a;
+    --dark-card: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --success-color: #4caf50;
+    --warning-color: #ffc107;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 280px;
+    background-color: var(--dark-card);
+    padding: 2rem;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    border-right: 1px solid rgba(255, 87, 34, 0.1);
+}
+
+.logo h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+.nav-menu ul {
+    list-style: none;
+}
+
+.nav-menu li {
+    margin-bottom: 0.5rem;
+}
+
+.nav-menu a {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.nav-menu a i {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.nav-menu li.active a,
+.nav-menu a:hover {
+    background: rgba(255, 87, 34, 0.1);
+    color: var(--primary-color);
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    margin-left: 280px;
+    padding: 2rem;
+}
+
+/* Header Styles */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: var(--dark-card);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    width: 300px;
+}
+
+.search-bar i {
+    color: var(--text-secondary);
+    margin-right: 1rem;
+}
+
+.search-bar input {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    width: 100%;
+    outline: none;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.notifications {
+    position: relative;
+    cursor: pointer;
+}
+
+.notifications i {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Stats Grid Styles */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--dark-card);
+    padding: 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    background: rgba(255, 87, 34, 0.1);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-icon i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.stat-info h3 {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-info p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.trend {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.trend.positive {
+    background: rgba(76, 175, 80, 0.1);
+    color: var(--success-color);
+}
+
+.trend.neutral {
+    background: rgba(255, 193, 7, 0.1);
+    color: var(--warning-color);
+}
+
+/* Progress Chart Styles */
+.progress-chart {
+    background: var(--dark-card);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.progress-chart h3 {
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.chart-container {
+    height: 300px;
+}
+
+/* Upcoming Sessions Styles */
+.upcoming-sessions {
+    background: var(--dark-card);
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.upcoming-sessions h3 {
+    margin-bottom: 1.5rem;
+}
+
+.session-cards {
+    display: grid;
+    gap: 1rem;
+}
+
+.session-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.session-time h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+}
+
+.session-time p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.session-info h4 {
+    margin-bottom: 0.3rem;
+}
+
+.session-info p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.status {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.status.confirmed {
+    background: rgba(76, 175, 80, 0.1);
+    color: var(--success-color);
+}
+
+.status.pending {
+    background: rgba(255, 193, 7, 0.1);
+    color: var(--warning-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        width: 80px;
+        padding: 1.5rem 1rem;
+    }
+
+    .logo h2 {
+        display: none;
+    }
+
+    .nav-menu a span {
+        display: none;
+    }
+
+    .nav-menu a i {
+        margin-right: 0;
+        font-size: 1.5rem;
+    }
+
+    .main-content {
+        margin-left: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search-bar {
+        display: none;
+    }
+
+    .session-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+} 

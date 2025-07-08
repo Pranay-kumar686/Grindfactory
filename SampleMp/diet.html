@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Plans - Grind Factory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="main.css/diet.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-text">
+                <span class="grind">Grind</span>
+                <span class="factory">Factory</span>
+            </span>
+            <span class="logo-tagline">Your Fitness Journey Starts Here</span>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="dashboard.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-calendar"></i>
+                    <span>Schedule</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="workout.html" class="nav-link">
+                    <i class="fas fa-heart"></i>
+                    <span>Workouts</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="diet.html" class="nav-link active">
+                    <i class="fas fa-utensils"></i>
+                    <span>Diet</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="attendance.html" class="nav-link">
+                    <i class="fas fa-clipboard-check"></i>
+                    <span>Attendance</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="profile.html" class="nav-link">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Nutrition & Diet Plans</h1>
+            <div class="date">
+                <i class="far fa-calendar"></i>
+                <span id="currentDate"></span>
+            </div>
+        </div>
+
+        
+
+        <!-- Diet Plan Selection -->
+        <div class="diet-section">
+            <div class="section-header">
+                <h3>Choose Your Diet Goal</h3>
+                <select id="dietPlanSelect">
+                    <option value="weight-loss">Weight Loss</option>
+                    <option value="weight-gain">Weight Gain</option>
+                    <option value="bulking">Bulking</option>
+                    <option value="cutting">Cutting</option>
+                </select>
+            </div>
+            
+            <!-- Diet Plans Container -->
+            <div class="diet-plans-container">
+                <!-- Weight Loss Plan -->
+                <div class="diet-plan" id="weight-loss">
+                    <div class="diet-plan-header">
+                        <h2>Weight Loss Diet Plan</h2>
+                        <p>A calorie-deficit plan focused on nutrient-dense foods to help you lose weight while maintaining muscle mass.</p>
+                    </div>
+                    
+                    <div class="macros-summary">
+                        <div class="macro">
+                            <div class="macro-value">1800</div>
+                            <div class="macro-label">Calories</div>
+                        </div>
+                        <div class="macro">
+                            <div class="macro-value">40%</div>
+                            <div class="macro-label">Protein</div>
+                        </div>
+                        <div class="macro">
+                            <div class="macro-value">30%</div>
+                            <div class="macro-label">Carbs</div>
+                        </div>
+                        <div class="macro">
+                            <div class="macro-value">30%</div>
+                            <div class="macro-label">Fats</div>
+                        </div>
+                    </div>
+                    
+                    <div class="meal-plans">
+                        <div class="meal">
+                            <h3><i class="fas fa-sun"></i> Breakfast (7:00 AM)</h3>
+                            <ul class="meal-items">
+                                <li>2 egg whites + 1 whole egg scrambled</li>
+                                <li>1/2 cup oatmeal with berries</li>
+                                <li>1 cup green tea (unsweetened)</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>350 calories</span>
+                                <span>25g protein</span>
+                                <span>30g carbs</span>
+                                <span>12g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-apple-alt"></i> Mid-Morning Snack (10:00 AM)</h3>
+                            <ul class="meal-items">
+                                <li>1 medium apple</li>
+                                <li>15 almonds</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>200 calories</span>
+                                <span>5g protein</span>
+                                <span>25g carbs</span>
+                                <span>9g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-utensils"></i> Lunch (1:00 PM)</h3>
+                            <ul class="meal-items">
+                                <li>4 oz grilled chicken breast</li>
+                                <li>Large mixed green salad with vegetables</li>
+                                <li>1 tbsp olive oil and vinegar dressing</li>
+                                <li>1/2 cup brown rice</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>450 calories</span>
+                                <span>35g protein</span>
+                                <span>30g carbs</span>
+                                <span>15g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-blender"></i> Afternoon Snack (4:00 PM)</h3>
+                            <ul class="meal-items">
+                                <li>1 scoop protein powder</li>
+                                <li>1 cup unsweetened almond milk</li>
+                                <li>1/2 banana</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>200 calories</span>
+                                <span>25g protein</span>
+                                <span>15g carbs</span>
+                                <span>3g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-moon"></i> Dinner (7:00 PM)</h3>
+                            <ul class="meal-items">
+                                <li>5 oz baked salmon</li>
+                                <li>1 cup steamed broccoli</li>
+                                <li>1 medium sweet potato</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>450 calories</span>
+                                <span>35g protein</span>
+                                <span>30g carbs</span>
+                                <span>15g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-bed"></i> Evening Snack (9:00 PM - Optional)</h3>
+                            <ul class="meal-items">
+                                <li>1/2 cup Greek yogurt</li>
+                                <li>1 tsp honey</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>100 calories</span>
+                                <span>10g protein</span>
+                                <span>10g carbs</span>
+                                <span>0g fat</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="diet-tips">
+                        <h3>Tips for Success</h3>
+                        <ul>
+                            <li>Drink at least 3 liters of water daily</li>
+                            <li>Limit processed foods and added sugars</li>
+                            <li>Eat slowly and mindfully</li>
+                            <li>Prepare meals in advance to avoid unhealthy choices</li>
+                            <li>Include at least 30 minutes of cardio 5 times per week</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Weight Gain Plan -->
+                <div class="diet-plan" id="weight-gain">
+                    <div class="diet-plan-header">
+                        <h2>Weight Gain Diet Plan</h2>
+                        <p>A calorie-surplus plan designed to help you gain healthy weight with balanced nutrition.</p>
+                    </div>
+                    
+                    <div class="macros-summary">
+                        <div class="macro">
+                            <div class="macro-value">3000</div>
+                            <div class="macro-label">Calories</div>
+                        </div>
+                        <div class="macro">
+                            <div class="macro-value">30%</div>
+                            <div class="macro-label">Protein</div>
+                        </div>
+                        <div class="macro">
+                            <div class="macro-value">50%</div>
+                            <div class="macro-label">Carbs</div>
+                        </div>
+                        <div class="macro">
+                            <div class="macro-value">20%</div>
+                            <div class="macro-label">Fats</div>
+                        </div>
+                    </div>
+                    
+                    <div class="meal-plans">
+                        <div class="meal">
+                            <h3><i class="fas fa-sun"></i> Breakfast (7:00 AM)</h3>
+                            <ul class="meal-items">
+                                <li>3 whole eggs scrambled</li>
+                                <li>2 slices whole grain toast with avocado</li>
+                                <li>1 cup oatmeal with banana and honey</li>
+                                <li>1 cup whole milk</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>750 calories</span>
+                                <span>40g protein</span>
+                                <span>80g carbs</span>
+                                <span>30g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-apple-alt"></i> Mid-Morning Snack (10:00 AM)</h3>
+                            <ul class="meal-items">
+                                <li>1 protein shake (2 scoops)</li>
+                                <li>1 banana</li>
+                                <li>2 tbsp peanut butter</li>
+                                <li>1 cup whole milk</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>550 calories</span>
+                                <span>40g protein</span>
+                                <span>45g carbs</span>
+                                <span>20g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-utensils"></i> Lunch (1:00 PM)</h3>
+                            <ul class="meal-items">
+                                <li>6 oz grilled chicken breast</li>
+                                <li>1.5 cups brown rice</li>
+                                <li>1 cup mixed vegetables</li>
+                                <li>2 tbsp olive oil</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>700 calories</span>
+                                <span>50g protein</span>
+                                <span>70g carbs</span>
+                                <span>25g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-blender"></i> Afternoon Snack (4:00 PM)</h3>
+                            <ul class="meal-items">
+                                <li>1 cup Greek yogurt</li>
+                                <li>1/4 cup granola</li>
+                                <li>1 tbsp honey</li>
+                                <li>1/4 cup mixed nuts</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>450 calories</span>
+                                <span>25g protein</span>
+                                <span>40g carbs</span>
+                                <span>20g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-moon"></i> Dinner (7:00 PM)</h3>
+                            <ul class="meal-items">
+                                <li>8 oz steak</li>
+                                <li>1 large baked potato with butter</li>
+                                <li>1 cup steamed vegetables</li>
+                                <li>1 tbsp olive oil</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>700 calories</span>
+                                <span>50g protein</span>
+                                <span>50g carbs</span>
+                                <span>35g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-bed"></i> Evening Snack (9:00 PM)</h3>
+                            <ul class="meal-items">
+                                <li>1 cup cottage cheese</li>
+                                <li>1 tbsp honey</li>
+                                <li>1/4 cup almonds</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>350 calories</span>
+                                <span>30g protein</span>
+                                <span>20g carbs</span>
+                                <span>15g fat</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="diet-tips">
+                        <h3>Tips for Success</h3>
+                        <ul>
+                            <li>Eat every 2-3 hours</li>
+                            <li>Focus on nutrient-dense, calorie-rich foods</li>
+                            <li>Drink calories when you're too full (smoothies, shakes)</li>
+                            <li>Prioritize strength training to build muscle</li>
+                            <li>Get 7-9 hours of quality sleep</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Bulking Plan -->
+                <div class="diet-plan" id="bulking">
+                    <div class="diet-plan-header">
+                        <h2>Bulking Diet Plan</h2>
+                        <p>A high-calorie plan designed to maximize muscle growth during intensive training periods.</p>
+                    </div>
+                    
+                    <div class="macros-summary">
+                        <div class="macro">
+                            <div class="macro-value">3500</div>
+                            <div class="macro-label">Calories</div>
+                        </div>
+                        <div class="macro">
+                            <div class="macro-value">35%</div>
+                            <div class="macro-label">Protein</div>
+                        </div>
+                        <div class="macro">
+                            <div class="macro-value">45%</div>
+                            <div class="macro-label">Carbs</div>
+                        </div>
+                        <div class="macro">
+                            <div class="macro-value">20%</div>
+                            <div class="macro-label">Fats</div>
+                        </div>
+                    </div>
+                    
+                    <div class="meal-plans">
+                        <div class="meal">
+                            <h3><i class="fas fa-sun"></i> Breakfast (6:30 AM)</h3>
+                            <ul class="meal-items">
+                                <li>4 whole eggs scrambled</li>
+                                <li>2 cups oatmeal with banana, honey and berries</li>
+                                <li>2 slices whole grain toast with avocado</li>
+                                <li>1 cup whole milk</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>850 calories</span>
+                                <span>45g protein</span>
+                                <span>90g carbs</span>
+                                <span>35g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-apple-alt"></i> Mid-Morning Snack (9:30 AM)</h3>
+                            <ul class="meal-items">
+                                <li>2 scoops protein powder</li>
+                                <li>1 cup whole milk</li>
+                                <li>1 banana</li>
+                                <li>2 tbsp peanut butter</li>
+                                <li>1/4 cup oats</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>650 calories</span>
+                                <span>50g protein</span>
+                                <span>60g carbs</span>
+                                <span>22g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-utensils"></i> Lunch (12:30 PM)</h3>
+                            <ul class="meal-items">
+                                <li>8 oz grilled chicken breast</li>
+                                <li>2 cups brown rice</li>
+                                <li>1 cup mixed vegetables</li>
+                                <li>2 tbsp olive oil</li>
+                                <li>1 avocado</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>850 calories</span>
+                                <span>60g protein</span>
+                                <span>80g carbs</span>
+                                <span>35g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-dumbbell"></i> Pre-Workout (3:30 PM)</h3>
+                            <ul class="meal-items">
+                                <li>1 banana</li>
+                                <li>1 scoop protein powder</li>
+                                <li>1 cup almond milk</li>
+                                <li>1 tbsp honey</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>300 calories</span>
+                                <span>25g protein</span>
+                                <span>40g carbs</span>
+                                <span>5g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-blender"></i> Post-Workout (5:30 PM)</h3>
+                            <ul class="meal-items">
+                                <li>2 scoops protein powder</li>
+                                <li>1 cup whole milk</li>
+                                <li>1 banana</li>
+                                <li>1/4 cup oats</li>
+                                <li>1 tbsp honey</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>550 calories</span>
+                                <span>50g protein</span>
+                                <span>65g carbs</span>
+                                <span>10g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-moon"></i> Dinner (7:30 PM)</h3>
+                            <ul class="meal-items">
+                                <li>10 oz steak</li>
+                                <li>2 large sweet potatoes</li>
+                                <li>2 cups steamed broccoli</li>
+                                <li>2 tbsp butter</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>800 calories</span>
+                                <span>60g protein</span>
+                                <span>70g carbs</span>
+                                <span>30g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-bed"></i> Before Bed (10:00 PM)</h3>
+                            <ul class="meal-items">
+                                <li>1 cup Greek yogurt</li>
+                                <li>1 scoop casein protein</li>
+                                <li>1 tbsp honey</li>
+                                <li>2 tbsp almond butter</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>400 calories</span>
+                                <span>40g protein</span>
+                                <span>20g carbs</span>
+                                <span>18g fat</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="diet-tips">
+                        <h3>Tips for Success</h3>
+                        <ul>
+                            <li>Prioritize progressive overload in your training</li>
+                            <li>Eat in a caloric surplus of 300-500 calories</li>
+                            <li>Consume protein every 3-4 hours</li>
+                            <li>Focus on compound exercises</li>
+                            <li>Get adequate rest between workouts</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Cutting Plan -->
+                <div class="diet-plan" id="cutting">
+                    <div class="diet-plan-header">
+                        <h2>Cutting Diet Plan</h2>
+                        <p>A strategic calorie-deficit plan to reduce body fat while preserving lean muscle mass.</p>
+                    </div>
+                    
+                    <div class="macros-summary">
+                        <div class="macro">
+                            <div class="macro-value">1700</div>
+                            <div class="macro-label">Calories</div>
+                        </div>
+                        <div class="macro">
+                            <div class="macro-value">45%</div>
+                            <div class="macro-label">Protein</div>
+                        </div>
+                        <div class="macro">
+                            <div class="macro-value">25%</div>
+                            <div class="macro-label">Carbs</div>
+                        </div>
+                        <div class="macro">
+                            <div class="macro-value">30%</div>
+                            <div class="macro-label">Fats</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cutting Plan - Add meal plans here -->
+                    <div class="meal-plans">
+                        <div class="meal">
+                            <h3><i class="fas fa-sun"></i> Breakfast (7:00 AM)</h3>
+                            <ul class="meal-items">
+                                <li>4 egg whites + 1 whole egg</li>
+                                <li>1/3 cup oatmeal with cinnamon</li>
+                                <li>1/2 cup berries</li>
+                                <li>Black coffee</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>300 calories</span>
+                                <span>25g protein</span>
+                                <span>25g carbs</span>
+                                <span>8g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-apple-alt"></i> Mid-Morning Snack (10:00 AM)</h3>
+                            <ul class="meal-items">
+                                <li>1 scoop protein powder</li>
+                                <li>1 cup unsweetened almond milk</li>
+                                <li>5 almonds</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>150 calories</span>
+                                <span>25g protein</span>
+                                <span>5g carbs</span>
+                                <span>5g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-utensils"></i> Lunch (1:00 PM)</h3>
+                            <ul class="meal-items">
+                                <li>5 oz grilled chicken breast</li>
+                                <li>1 cup leafy greens</li>
+                                <li>1/2 cup cherry tomatoes</li>
+                                <li>1/4 avocado</li>
+                                <li>1 tbsp olive oil and vinegar dressing</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>350 calories</span>
+                                <span>40g protein</span>
+                                <span>10g carbs</span>
+                                <span>18g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-dumbbell"></i> Pre-Workout (3:30 PM)</h3>
+                            <ul class="meal-items">
+                                <li>1/2 banana</li>
+                                <li>1 scoop protein powder (mixed with water)</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>150 calories</span>
+                                <span>20g protein</span>
+                                <span>15g carbs</span>
+                                <span>1g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-blender"></i> Post-Workout (5:30 PM)</h3>
+                            <ul class="meal-items">
+                                <li>1.5 scoops protein powder</li>
+                                <li>1 cup water</li>
+                                <li>1/2 cup berries</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>200 calories</span>
+                                <span>35g protein</span>
+                                <span>10g carbs</span>
+                                <span>2g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-moon"></i> Dinner (7:00 PM)</h3>
+                            <ul class="meal-items">
+                                <li>6 oz white fish or lean beef</li>
+                                <li>1 cup steamed vegetables</li>
+                                <li>1/2 cup quinoa</li>
+                                <li>1 tsp olive oil</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>400 calories</span>
+                                <span>45g protein</span>
+                                <span>25g carbs</span>
+                                <span>10g fat</span>
+                            </div>
+                        </div>
+                        
+                        <div class="meal">
+                            <h3><i class="fas fa-bed"></i> Before Bed (9:30 PM)</h3>
+                            <ul class="meal-items">
+                                <li>1/2 cup cottage cheese</li>
+                                <li>1 tbsp natural peanut butter</li>
+                            </ul>
+                            <div class="meal-nutrition">
+                                <span>150 calories</span>
+                                <span>15g protein</span>
+                                <span>5g carbs</span>
+                                <span>8g fat</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="diet-tips">
+                        <h3>Tips for Success</h3>
+                        <ul>
+                            <li>Maintain high protein intake to preserve muscle</li>
+                            <li>Incorporate strategic carb cycling</li>
+                            <li>Include both HIIT and steady-state cardio</li>
+                            <li>Stay hydrated to manage hunger</li>
+                            <li>Consider intermittent fasting techniques</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- BMI Calculator -->
+        <div class="calculator-section">
+            <h2>BMI Calculator</h2>
+            <div class="calculator-form">
+                <div class="form-group">
+                    <label for="weight">Weight</label>
+                    <input type="number" id="weight" min="30" max="200" placeholder="kg">
+                </div>
+                <div class="form-group">
+                    <label for="height">Height</label>
+                    <input type="number" id="height" min="120" max="220" placeholder="cm">
+                </div>
+                <button id="calculateBtn" class="calculate-btn">Calculate BMI</button>
+            </div>
+            
+            <div class="calculator-results" id="calculatorResults">
+                <div class="bmi-result" style="display: none;">
+                    <div class="bmi-value">
+                        <span id="bmiNumber">0</span>
+                        <span class="bmi-label">BMI</span>
+                    </div>
+                    <div class="bmi-category" id="bmiCategory">
+                        Category will appear here
+                    </div>
+                    <div class="bmi-scale">
+                        <div class="scale-item underweight">
+                            <span class="scale-label">Underweight</span>
+                            <span class="scale-range">&lt; 18.5</span>
+                        </div>
+                        <div class="scale-item normal">
+                            <span class="scale-label">Normal</span>
+                            <span class="scale-range">18.5 - 24.9</span>
+                        </div>
+                        <div class="scale-item overweight">
+                            <span class="scale-label">Overweight</span>
+                            <span class="scale-range">25 - 29.9</span>
+                        </div>
+                        <div class="scale-item obese">
+                            <span class="scale-label">Obese</span>
+                            <span class="scale-range">&gt; 30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Progress Update Modal -->
+    <div id="progressModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Update Progress</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="progressForm">
+                    <input type="hidden" id="progressType">
+                    <div class="form-group">
+                        <label for="progressDate">Date</label>
+                        <input type="date" id="progressDate" required>
+                    </div>
+                    <div id="weightFields" class="progress-fields">
+                        <div class="form-group">
+                            <label for="weight">Weight (kg)</label>
+                            <input type="number" id="weight" step="0.1" min="0">
+                        </div>
+                    </div>
+                    <div id="measurementFields" class="progress-fields">
+                        <div class="form-group">
+                            <label for="chest">Chest (cm)</label>
+                            <input type="number" id="chest" step="0.1" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="waist">Waist (cm)</label>
+                            <input type="number" id="waist" step="0.1" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="hips">Hips (cm)</label>
+                            <input type="number" id="hips" step="0.1" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="arms">Arms (cm)</label>
+                            <input type="number" id="arms" step="0.1" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="thighs">Thighs (cm)</label>
+                            <input type="number" id="thighs" step="0.1" min="0">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Notes</label>
+                        <textarea id="notes" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Save Progress</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Progress Button -->
+    <div class="add-progress-btn" onclick="openProgressModal()">
+        <i class="fas fa-plus"></i>
+    </div>
+
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            margin: 5% auto;
+            padding: 0;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .close {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: var(--text-primary);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #f4511e;
+        }
+
+        .progress-fields {
+            display: none;
+        }
+
+        /* Add Progress Button */
+        .add-progress-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .add-progress-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* BMI Calculator Styles */
+        .calculator-section {
+            background-color: rgba(36, 40, 48, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .calculator-section h2 {
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .calculator-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .calculate-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            grid-column: 1 / -1;
+        }
+
+        .calculate-btn:hover {
+            background-color: #f4511e;
+        }
+
+        .bmi-result {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .bmi-value {
+            margin-bottom: 1rem;
+        }
+
+        .bmi-value #bmiNumber {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .bmi-label {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-left: 0.5rem;
+        }
+
+        .bmi-category {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .bmi-scale {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .scale-item {
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .scale-item.underweight {
+            background-color: rgba(33, 150, 243, 0.2);
+            border: 1px solid rgba(33, 150, 243, 0.3);
+        }
+
+        .scale-item.normal {
+            background-color: rgba(76, 175, 80, 0.2);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .scale-item.overweight {
+            background-color: rgba(255, 152, 0, 0.2);
+            border: 1px solid rgba(255, 152, 0, 0.3);
+        }
+
+        .scale-item.obese {
+            background-color: rgba(244, 67, 54, 0.2);
+            border: 1px solid rgba(244, 67, 54, 0.3);
+        }
+
+        .scale-label {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .scale-range {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .bmi-scale {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+
+    <script src="js/diet.js"></script>
+    <script>
+        // Progress Tracking Functions
+        function openProgressModal(type = 'weight') {
+            const modal = document.getElementById('progressModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const progressType = document.getElementById('progressType');
+            const weightFields = document.getElementById('weightFields');
+            const measurementFields = document.getElementById('measurementFields');
+
+            // Set modal title and type
+            progressType.value = type;
+            modalTitle.textContent = `Update ${type.charAt(0).toUpperCase() + type.slice(1)} Progress`;
+
+            // Show/hide relevant fields
+            weightFields.style.display = type === 'weight' ? 'block' : 'none';
+            measurementFields.style.display = type === 'measurements' ? 'block' : 'none';
+
+            // Set today's date as default
+            document.getElementById('progressDate').valueAsDate = new Date();
+
+            modal.style.display = 'block';
+        }
+
+        // Close modal when clicking the X or outside the modal
+        document.querySelector('.close').onclick = function() {
+            document.getElementById('progressModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('progressModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Handle progress form submission
+        document.getElementById('progressForm').onsubmit = function(e) {
+            e.preventDefault();
+            
+            const user = JSON.parse(localStorage.getItem('user'));
+            const progressType = document.getElementById('progressType').value;
+            const date = document.getElementById('progressDate').value;
+            const notes = document.getElementById('notes').value;
+
+            let progressData = {
+                user_id: user.id,
+                date: date,
+                type: progressType,
+                notes: notes
+            };
+
+            // Add type-specific data
+            switch(progressType) {
+                case 'weight':
+                    progressData.weight = document.getElementById('weight').value;
+                    break;
+                case 'measurements':
+                    progressData.measurements = {
+                        chest: document.getElementById('chest').value,
+                        waist: document.getElementById('waist').value,
+                        hips: document.getElementById('hips').value,
+                        arms: document.getElementById('arms').value,
+                        thighs: document.getElementById('thighs').value
+                    };
+                    break;
+            }
+
+            // Save progress to server
+            fetch('http://localhost:5500/progress/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(progressData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Progress updated successfully!');
+                    document.getElementById('progressModal').style.display = 'none';
+                } else {
+                    alert('Error updating progress: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error updating progress. Please try again.');
+            });
+        }
+
+        // BMI Calculator
+        document.getElementById('calculateBtn').addEventListener('click', function() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value) / 100; // Convert cm to m
+
+            if (weight && height) {
+                const bmi = weight / (height * height);
+                const bmiResult = document.querySelector('.bmi-result');
+                const bmiNumber = document.getElementById('bmiNumber');
+                const bmiCategory = document.getElementById('bmiCategory');
+
+                bmiNumber.textContent = bmi.toFixed(1);
+
+                let category = '';
+                let categoryColor = '';
+
+                if (bmi < 18.5) {
+                    category = 'Underweight';
+                    categoryColor = '#2196F3';
+                } else if (bmi < 25) {
+                    category = 'Normal Weight';
+                    categoryColor = '#4CAF50';
+                } else if (bmi < 30) {
+                    category = 'Overweight';
+                    categoryColor = '#FF9800';
+                } else {
+                    category = 'Obese';
+                    categoryColor = '#F44336';
+                }
+
+                bmiCategory.textContent = category;
+                bmiCategory.style.color = categoryColor;
+                bmiResult.style.display = 'block';
+            } else {
+                alert('Please enter both weight and height');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+/* Workout Section Styles */
+.workout-section {
+    background-color: rgba(36, 40, 48, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    display: none; /* Hidden by default */
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-header h3 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+}
+
+.workout-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    overflow-x: auto;
+}
+
+.workout-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.workout-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.workout-day {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.workout-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.workout-exercises {
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+.workout-exercises li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.workout-exercises li:last-child {
+    border-bottom: none;
+}
+
+.exercise-name {
+    color: var(--text-primary);
+}
+
+.exercise-detail {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.workout-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.workout-duration, .workout-intensity {
+    display: flex;
+    align-items: center;
+}
+
+.workout-duration i, .workout-intensity i {
+    margin-right: 0.5rem;
+    color: var(--accent-color);
+}
+
+/* Make workout grid responsive */
+@media (max-width: 768px) {
+    .workout-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Content sections */
+.content-section {
+    display: none; /* Hide all sections by default */
+}
+
+.content-section.active {
+    display: block; /* Show active section */
+}

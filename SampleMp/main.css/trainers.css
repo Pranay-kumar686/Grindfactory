@@ -1,0 +1,252 @@
+/* Trainers Section */
+.trainers-section {
+  padding: 60px 40px;
+  background: linear-gradient(to right, #0d0d0d, #1a1a1a);
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.section-title {
+  color: #FFA500;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.trainers-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.trainer-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px solid #FF8C00;
+  border-radius: 15px;
+  padding: 20px;
+  width: 300px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 15px #FF8C00;
+}
+
+.trainer-card:hover {
+  transform: translateY(-10px);
+}
+
+.trainer-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 3px solid #FF8C00;
+}
+
+.trainer-info {
+  margin-top: 15px;
+  color: #fff;
+}
+
+.trainer-info h3 {
+  color: #FFA500;
+}
+
+.trainer-info a {
+  color: #FF4500;
+  text-decoration: none;
+}
+
+/* Know More Button */
+.know-more-btn {
+  background-color: #FF8C00;
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: 0.3s ease;
+}
+
+.know-more-btn:hover {
+  background-color: #e07b00;
+  transform: scale(1.05);
+}
+
+.know-more-btn:active {
+  transform: scale(0.98);
+}
+
+/* Trainer Profile Section - Modal Style */
+.trainer-profile-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 2000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { 
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.trainer-profile-container {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 85vh;
+  background-color: rgba(20, 20, 20, 0.95);
+  border-radius: 10px;
+  border: 2px solid #FF8C00;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(255, 140, 0, 0.5);
+  animation: slideIn 0.4s ease-out;
+}
+
+.trainer-video, .trainer-details {
+  flex: 1;
+  padding: 20px;
+}
+
+.trainer-video {
+  max-height: 85vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+}
+
+.trainer-video video {
+  width: 100%;
+  height: auto;
+  max-height: 75vh;
+  border: 3px solid #FF8C00;
+  border-radius: 8px;
+}
+
+.trainer-details {
+  color: #fff;
+  overflow-y: auto;
+  max-height: 85vh;
+  padding: 30px;
+}
+
+.trainer-details p {
+  color: #FFD700;
+  margin: 15px 0;
+  line-height: 1.7;
+}
+
+.trainer-details h2 {
+  color: #FF8C00;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid rgba(255, 140, 0, 0.5);
+  padding-bottom: 10px;
+}
+
+.trainer-details strong {
+  color: #FF4500;
+}
+
+.instagram-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #FF4500;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.instagram-btn:hover {
+  background-color: #e03e00;
+  transform: scale(1.05);
+}
+
+.back-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  border: 2px solid #FF8C00;
+  color: #FF8C00;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+  z-index: 2010;
+}
+
+.back-btn:hover {
+  background-color: #FF8C00;
+  color: #000;
+}
+
+/* Close button */
+.close-profile-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(255, 140, 0, 0.8);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease;
+  z-index: 2010;
+}
+
+.close-profile-btn:hover {
+  background-color: #FF8C00;
+  transform: rotate(90deg);
+}
+
+/* Media query for responsive layout on smaller screens */
+@media (max-width: 768px) {
+  .trainer-profile-container {
+    flex-direction: column;
+    max-height: none;
+    overflow-y: auto;
+  }
+  
+  .trainer-video, .trainer-details {
+    width: 100%;
+  }
+  
+  .trainer-video {
+    max-height: 40vh;
+  }
+  
+  .trainer-details {
+    padding: 20px;
+  }
+}

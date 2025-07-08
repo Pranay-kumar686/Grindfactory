@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Grind Factory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --dark-bg: rgba(26, 29, 33, 0.95);
+            --card-bg: rgba(36, 40, 48, 0.8);
+            --accent-color: #ff5722;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("images/img-3.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* Add overlay to main content */
+        .main-content::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: -1;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            background-color: rgba(36, 40, 48, 0.95);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100vh;
+            position: fixed;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .grind {
+            color: #ff5722;
+            text-shadow: 0 0 10px rgba(255, 87, 34, 0.5);
+        }
+
+        .factory {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .logo-tagline {
+            font-size: 0.8rem;
+            color: #a0a0a0;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link i {
+            margin-right: 0.8rem;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background-color: #ff5722;
+            color: var(--text-primary);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            padding: 2rem;
+            width: calc(100% - 250px);
+        }
+
+        /* Profile Section Styles */
+        .profile-section {
+            background-color: rgba(36, 40, 48, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #ff5722;
+            box-shadow: 0 0 20px rgba(255, 87, 34, 0.3);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-upload {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 8px;
+            border-bottom-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .profile-avatar:hover .avatar-upload {
+            opacity: 1;
+        }
+
+        .avatar-upload-btn {
+            color: white;
+            font-size: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .avatar-upload-btn i {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .avatar-upload-btn span {
+            font-size: 0.7rem;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .profile-email {
+            color: #a0a0a0;
+            margin-bottom: 1rem;
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .profile-stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ff5722;
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-label {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+
+        .profile-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .detail-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .detail-card h3 {
+            color: #ff5722;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .detail-card h3 i {
+            font-size: 1rem;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .detail-label {
+            color: #a0a0a0;
+        }
+
+        .detail-value {
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .achievement-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievement-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .achievement-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .achievement-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 87, 34, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff5722;
+        }
+
+        .achievement-info h4 {
+            color: #ffffff;
+            margin-bottom: 0.2rem;
+        }
+
+        .achievement-info p {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 70px;
+                padding: 1rem;
+            }
+
+            .logo span, .nav-link span {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 70px;
+                width: calc(100% - 70px);
+            }
+
+            .nav-link i {
+                margin-right: 0;
+            }
+
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-stats {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-text">
+                <span class="grind">Grind</span>
+                <span class="factory">Factory</span>
+            </span>
+            <span class="logo-tagline">Your Fitness Journey Starts Here</span>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="dashboard.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-calendar"></i>
+                    <span>Schedule</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-heart"></i>
+                    <span>Workouts</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="diet.html" class="nav-link">
+                    <i class="fas fa-utensils"></i>
+                    <span>Diet</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="attendance.html" class="nav-link">
+                    <i class="fas fa-clipboard-check"></i>
+                    <span>Attendance</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="profile.html" class="nav-link active">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="profile-section">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img src="images/user-avatar.jpg" alt="Profile Picture" id="userAvatar">
+                    <div class="avatar-upload">
+                        <label for="avatarInput" class="avatar-upload-btn">
+                            <i class="fas fa-camera"></i>
+                            <span>Change Photo</span>
+                        </label>
+                        <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h2 class="profile-name" id="profileName">User Name</h2>
+                    <p class="profile-email" id="profileEmail">user@example.com</p>
+                    <div class="profile-stats">
+                        <div class="profile-stat">
+                            <div class="stat-number">156</div>
+                            <div class="stat-label">Workouts</div>
+                        </div>
+                        <div class="profile-stat">
+                            <div class="stat-number">28.5k</div>
+                            <div class="stat-label">Calories</div>
+                        </div>
+                        <div class="profile-stat">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Achievements</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-details">
+                <div class="detail-card">
+                    <h3><i class="fas fa-user"></i> Personal Info</h3>
+                    <div class="detail-item">
+                        <span class="detail-label">Member Since</span>
+                        <span class="detail-value">January 2024</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Membership Plan</span>
+                        <span class="detail-value">Premium</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Next Payment</span>
+                        <span class="detail-value">Feb 15, 2024</span>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <h3><i class="fas fa-dumbbell"></i> Fitness Goals</h3>
+                    <div class="detail-item">
+                        <span class="detail-label">Primary Goal</span>
+                        <span class="detail-value">Muscle Gain</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Weekly Target</span>
+                        <span class="detail-value">4 Sessions</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Calorie Goal</span>
+                        <span class="detail-value">2800 kcal/day</span>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <h3><i class="fas fa-trophy"></i> Recent Achievements</h3>
+                    <ul class="achievement-list">
+                        <li class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h4>Calorie Crusher</h4>
+                                <p>Burned 5000+ calories in a week</p>
+                            </div>
+                        </li>
+                        <li class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h4>Consistency King</h4>
+                                <p>Completed 10 workouts in 2 weeks</p>
+                            </div>
+                        </li>
+                        <li class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h4>Strength Milestone</h4>
+                                <p>Reached 100kg bench press</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Check if user is logged in
+        function checkAuth() {
+            // Check for user data in the new format first
+            const userData = localStorage.getItem('user');
+            
+            if (userData) {
+                // New format - user data stored as JSON
+                try {
+                    const user = JSON.parse(userData);
+                    
+                    // Update user info
+                    document.getElementById('profileName').textContent = user.name || user.email.split('@')[0];
+                    document.getElementById('profileEmail').textContent = user.email;
+                    
+                    // Load saved avatar if exists
+                    const savedAvatar = localStorage.getItem('userAvatar');
+                    if (savedAvatar) {
+                        document.getElementById('userAvatar').src = savedAvatar;
+                    }
+                    
+                    return; // Exit function if we successfully loaded user data
+                } catch (error) {
+                    console.error('Error parsing user data:', error);
+                }
+            }
+            
+            // Fall back to old format if new format fails
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const userEmail = localStorage.getItem('userEmail');
+            
+            if (!isLoggedIn || !userEmail) {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Update user info with old format
+            document.getElementById('profileName').textContent = userEmail.split('@')[0];
+            document.getElementById('profileEmail').textContent = userEmail;
+        
+            // Load saved avatar if exists
+            const savedAvatar = localStorage.getItem('userAvatar');
+            if (savedAvatar) {
+                document.getElementById('userAvatar').src = savedAvatar;
+            }
+        }
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('userEmail');
+            localStorage.removeItem('user'); // Also remove new format
+            window.location.href = 'index.html';
+        }
+
+        // Handle avatar upload
+        document.getElementById('avatarInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                // Check file type
+                if (!file.type.startsWith('image/')) {
+                    alert('Please upload an image file');
+                    return;
+                }
+
+                // Check file size (max 5MB)
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('Please upload an image smaller than 5MB');
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const imgData = event.target.result;
+                    document.getElementById('userAvatar').src = imgData;
+                    // Save to localStorage
+                    localStorage.setItem('userAvatar', imgData);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Add photo view functionality
+        document.getElementById('userAvatar').addEventListener('click', function(e) {
+            // Prevent opening the file upload if clicking on the image itself
+            e.stopPropagation();
+            
+            // Create modal for enlarged view
+            const modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100%';
+            modal.style.height = '100%';
+            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+            modal.style.display = 'flex';
+            modal.style.alignItems = 'center';
+            modal.style.justifyContent = 'center';
+            modal.style.zIndex = '1000';
+            modal.style.cursor = 'pointer';
+            
+            // Create image element
+            const img = document.createElement('img');
+            img.src = this.src;
+            img.style.maxWidth = '80%';
+            img.style.maxHeight = '80%';
+            img.style.borderRadius = '8px';
+            img.style.boxShadow = '0 0 20px rgba(255, 87, 34, 0.5)';
+            
+            // Add close button
+            const closeBtn = document.createElement('div');
+            closeBtn.innerHTML = '&times;';
+            closeBtn.style.position = 'absolute';
+            closeBtn.style.top = '20px';
+            closeBtn.style.right = '30px';
+            closeBtn.style.color = 'white';
+            closeBtn.style.fontSize = '40px';
+            closeBtn.style.fontWeight = 'bold';
+            closeBtn.style.cursor = 'pointer';
+            
+            // Close modal when clicking anywhere
+            modal.addEventListener('click', function() {
+                document.body.removeChild(modal);
+            });
+            
+            // Prevent closing when clicking on the image
+            img.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+            
+            // Add elements to modal
+            modal.appendChild(img);
+            modal.appendChild(closeBtn);
+            document.body.appendChild(modal);
+        });
+
+        // Check auth when page loads
+        document.addEventListener('DOMContentLoaded', checkAuth);
+    </script>
+</body>
+</html>

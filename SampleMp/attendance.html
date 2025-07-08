@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance - Grind Factory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --dark-bg: rgba(26, 29, 33, 0.95);
+            --card-bg: rgba(36, 40, 48, 0.8);
+            --accent-color: #ff5722;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("images/img-3.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* Add overlay to main content */
+        .main-content::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: -1;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            background-color: rgba(36, 40, 48, 0.95);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100vh;
+            position: fixed;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .grind {
+            color: #ff5722;
+            text-shadow: 0 0 10px rgba(255, 87, 34, 0.5);
+        }
+
+        .factory {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .logo-tagline {
+            font-size: 0.8rem;
+            color: #a0a0a0;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link i {
+            margin-right: 0.8rem;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background-color: #ff5722;
+            color: var(--text-primary);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            padding: 2rem;
+            width: calc(100% - 250px);
+        }
+
+        /* Attendance Section Styles */
+        .attendance-section {
+            background-color: rgba(36, 40, 48, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .attendance-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .attendance-title {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .attendance-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .attendance-btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .check-in-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .check-out-btn {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .attendance-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .attendance-btn:disabled {
+            background-color: #666;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .attendance-history {
+            margin-top: 2rem;
+        }
+
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .history-title {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
+
+        .history-filters {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .filter-select {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .history-table th,
+        .history-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .history-table th {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .history-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .status-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .status-check-in {
+            background-color: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+        }
+
+        .status-check-out {
+            background-color: rgba(244, 67, 54, 0.2);
+            color: #f44336;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 70px;
+                padding: 1rem;
+            }
+
+            .logo span, .nav-link span {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 70px;
+                width: calc(100% - 70px);
+            }
+
+            .nav-link i {
+                margin-right: 0;
+            }
+
+            .attendance-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .attendance-actions {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .history-filters {
+                flex-direction: column;
+            }
+
+            .history-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-text">
+                <span class="grind">Grind</span>
+                <span class="factory">Factory</span>
+            </span>
+            <span class="logo-tagline">Your Fitness Journey Starts Here</span>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="dashboard.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-calendar"></i>
+                    <span>Schedule</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="workout.html" class="nav-link">
+                    <i class="fas fa-heart"></i>
+                    <span>Workouts</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="diet.html" class="nav-link">
+                    <i class="fas fa-utensils"></i>
+                    <span>Diet</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="attendance.html" class="nav-link active">
+                    <i class="fas fa-clipboard-check"></i>
+                    <span>Attendance</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="profile.html" class="nav-link">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="attendance-section">
+            <div class="attendance-header">
+                <h1 class="attendance-title">Attendance</h1>
+                <div class="attendance-actions">
+                    <button id="checkInBtn" class="attendance-btn check-in-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Check In
+                    </button>
+                    <button id="checkOutBtn" class="attendance-btn check-out-btn" disabled>
+                        <i class="fas fa-sign-out-alt"></i>
+                        Check Out
+                    </button>
+                </div>
+            </div>
+
+            <div class="attendance-history">
+                <div class="history-header">
+                    <h2 class="history-title">Attendance History</h2>
+                    <div class="history-filters">
+                        <select class="filter-select" id="monthFilter">
+                            <option value="all">All Time</option>
+                            <option value="thisMonth">This Month</option>
+                            <option value="lastMonth">Last Month</option>
+                        </select>
+                        <select class="filter-select" id="statusFilter">
+                            <option value="all">All Status</option>
+                            <option value="check-in">Check In</option>
+                            <option value="check-out">Check Out</option>
+                        </select>
+                    </div>
+                </div>
+
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendanceHistory">
+                        <!-- Attendance history will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Check if user is logged in
+        function checkAuth() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (!user) {
+                window.location.href = 'login.html';
+                return;
+            }
+            loadAttendanceHistory();
+        }
+
+        // Load attendance history
+        function loadAttendanceHistory() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            fetch(`http://localhost:5500/api/attendance/history/${user.id}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        updateAttendanceHistory(data.history);
+                    }
+                })
+                .catch(error => console.error('Error loading attendance history:', error));
+        }
+
+        // Update attendance history table
+        function updateAttendanceHistory(history) {
+            const tbody = document.getElementById('attendanceHistory');
+            tbody.innerHTML = '';
+
+            history.forEach(record => {
+                const row = document.createElement('tr');
+                const date = new Date(record.timestamp);
+                
+                row.innerHTML = `
+                    <td>${date.toLocaleDateString()}</td>
+                    <td>${date.toLocaleTimeString()}</td>
+                    <td>${record.type}</td>
+                    <td>
+                        <span class="status-badge status-${record.type}">
+                            ${record.type === 'check-in' ? 'Checked In' : 'Checked Out'}
+                        </span>
+                    </td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+        }
+
+        // Handle check in
+        document.getElementById('checkInBtn').addEventListener('click', function() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            
+            fetch('http://localhost:5500/api/attendance/check-in', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    user_id: user.id
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    this.disabled = true;
+                    document.getElementById('checkOutBtn').disabled = false;
+                    loadAttendanceHistory();
+                } else {
+                    alert('Error checking in: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error checking in. Please try again.');
+            });
+        });
+
+        // Handle check out
+        document.getElementById('checkOutBtn').addEventListener('click', function() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            
+            fetch('http://localhost:5500/api/attendance/check-out', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    user_id: user.id
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    this.disabled = true;
+                    document.getElementById('checkInBtn').disabled = false;
+                    loadAttendanceHistory();
+                } else {
+                    alert('Error checking out: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error checking out. Please try again.');
+            });
+        });
+
+        // Handle filters
+        document.getElementById('monthFilter').addEventListener('change', loadAttendanceHistory);
+        document.getElementById('statusFilter').addEventListener('change', loadAttendanceHistory);
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('user');
+            window.location.href = 'login.html';
+        }
+
+        // Check auth when page loads
+        document.addEventListener('DOMContentLoaded', checkAuth);
+    </script>
+</body>
+</html> 

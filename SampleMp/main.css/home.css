@@ -1,0 +1,138 @@
+/* Background Layer */
+.background-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.45);/*.67*/
+    backdrop-filter: blur(1px);
+    z-index: -1;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 130vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+/*.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}*/
+
+/* Hero Title with Shine Effect */
+.hero-title {
+    font-size: 4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ff7f00;
+    animation: shine 1.5s ease-in-out infinite alternate,fadeIn 2s ease-in-out forwards;
+}
+
+@keyframes shine {
+
+    100% { text-shadow: 0 0 20px #ff5500, 0 0 40px #ff2200; }
+}
+
+.grind {
+    color: #ff7f00;
+}
+
+.factory {
+    color: white;
+}
+
+/* White Text Above CTA Button */
+.tagline, .quote {
+    font-size: 1.5rem;
+    color: burlywood;
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards 1s;
+}
+
+/* CTA Button with Hover Effects */
+.cta-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    background: linear-gradient(90deg, #ff7f00, #ff5500);
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    cursor: hand;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 0 30px #ff5500;
+}
+
+.cta-button:hover {
+    background: linear-gradient(90deg, #ff5500, #ff2200);
+    box-shadow: 0 0 20px #878180;
+    cursor: pointer;
+}
+
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: fixed;
+    transition: 0.3s;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+.navbar ul li a {
+    position: relative;  
+    color: white; /* Default text color */
+    text-decoration: none; /* Remove default underline */
+    padding: 10px 15px;  
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover {
+    color: orange; /* Change text color to orange on hover */
+    text-shadow: 0 0 10px rgba(255, 165, 0, 0.8); /* Orange glowing effect */
+}
+
+
+
+.navbar ul li a:hover::after {
+    width: 100%; /* Expand underline on hover */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

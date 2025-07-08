@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workouts - Grind Factory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --dark-bg: rgba(26, 29, 33, 0.95);
+            --card-bg: rgba(36, 40, 48, 0.8);
+            --accent-color: #ff5722;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("images/img-3.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* Add overlay to main content */
+        .main-content::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: -1;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            background-color: rgba(36, 40, 48, 0.95);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100vh;
+            position: fixed;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .grind {
+            color: #ff5722;
+            text-shadow: 0 0 10px rgba(255, 87, 34, 0.5);
+        }
+
+        .factory {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .logo-tagline {
+            font-size: 0.8rem;
+            color: #a0a0a0;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link i {
+            margin-right: 0.8rem;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background-color: #ff5722;
+            color: var(--text-primary);
+        }
+
+        /* Main Content */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 2rem;
+            width: calc(100% - 250px);
+            overflow-x: hidden;
+        }
+
+        /* Ensure all content respects container boundaries */
+        * {
+            max-width: 100%;
+        }
+
+        /* Header */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Workout Section Styles */
+        .workout-section {
+            background-color: rgba(36, 40, 48, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header h3 {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
+
+        /* Update select dropdown */
+        select {
+            background-color: rgba(36, 40, 48, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            padding: 5px 10px;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        select option {
+            background-color: #242830;
+            color: var(--text-primary);
+        }
+
+        .workout-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .workout-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1.2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .workout-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .workout-day {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .workout-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .workout-exercises {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .workout-exercises li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .workout-exercises li:last-child {
+            border-bottom: none;
+        }
+
+        .exercise-name {
+            color: var(--text-primary);
+        }
+
+        .exercise-detail {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .workout-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .workout-duration, .workout-intensity {
+            display: flex;
+            align-items: center;
+        }
+
+        .workout-duration i, .workout-intensity i {
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 70px;
+                padding: 1rem;
+            }
+
+            .logo span, .nav-link span {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 70px;
+                width: calc(100% - 70px);
+            }
+
+            .nav-link i {
+                margin-right: 0;
+            }
+            
+            .workout-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            margin: 5% auto;
+            padding: 0;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .close {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: var(--text-primary);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #f4511e;
+        }
+
+        .progress-fields {
+            display: none;
+        }
+
+        /* Add Progress Button */
+        .add-progress-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .add-progress-btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="logo-text">
+                <span class="grind">Grind</span>
+                <span class="factory">Factory</span>
+            </span>
+            <span class="logo-tagline">Your Fitness Journey Starts Here</span>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="dashboard.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-calendar"></i>
+                    <span>Schedule</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="workout.html" class="nav-link active">
+                    <i class="fas fa-heart"></i>
+                    <span>Workouts</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="diet.html" class="nav-link">
+                    <i class="fas fa-utensils"></i>
+                    <span>Diet</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="attendance.html" class="nav-link">
+                    <i class="fas fa-clipboard-check"></i>
+                    <span>Attendance</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="profile.html" class="nav-link">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Weekly Workout Plans</h1>
+            <div class="date">
+                <i class="far fa-calendar"></i>
+                <span id="currentDate"></span>
+            </div>
+        </div>
+
+        <!-- Weekly Workout Plan Section -->
+        <div class="workout-section">
+            <div class="section-header">
+                <h3>Choose Your Plan</h3>
+                <select id="workoutPlanSelect">
+                    <option>Beginner</option>
+                    <option>Intermediate</option>
+                    <option>Advanced</option>
+                </select>
+            </div>
+            
+            <div class="workout-grid">
+                <div class="workout-card">
+                    <div class="workout-day">Monday</div>
+                    <div class="workout-title">Chest & Triceps</div>
+                    <ul class="workout-exercises">
+                        <li><span class="exercise-name">Bench Press</span> <span class="exercise-detail">4 × 8-12</span></li>
+                        <li><span class="exercise-name">Incline Dumbbell Press</span> <span class="exercise-detail">3 × 10</span></li>
+                        <li><span class="exercise-name">Chest Flyes</span> <span class="exercise-detail">3 × 12</span></li>
+                        <li><span class="exercise-name">Tricep Pushdowns</span> <span class="exercise-detail">3 × 15</span></li>
+                        <li><span class="exercise-name">Overhead Extensions</span> <span class="exercise-detail">3 × 12</span></li>
+                    </ul>
+                    <div class="workout-footer">
+                        <span class="workout-duration"><i class="fas fa-clock"></i> 45-60 min</span>
+                        <span class="workout-intensity"><i class="fas fa-fire"></i> Moderate</span>
+                    </div>
+                </div>
+                
+                <div class="workout-card">
+                    <div class="workout-day">Tuesday</div>
+                    <div class="workout-title">Back & Biceps</div>
+                    <ul class="workout-exercises">
+                        <li><span class="exercise-name">Pull-ups</span> <span class="exercise-detail">3 × 8-10</span></li>
+                        <li><span class="exercise-name">Bent Over Rows</span> <span class="exercise-detail">4 × 10</span></li>
+                        <li><span class="exercise-name">Lat Pulldowns</span> <span class="exercise-detail">3 × 12</span></li>
+                        <li><span class="exercise-name">Barbell Curls</span> <span class="exercise-detail">3 × 12</span></li>
+                        <li><span class="exercise-name">Hammer Curls</span> <span class="exercise-detail">3 × 15</span></li>
+                    </ul>
+                    <div class="workout-footer">
+                        <span class="workout-duration"><i class="fas fa-clock"></i> 50-65 min</span>
+                        <span class="workout-intensity"><i class="fas fa-fire"></i> High</span>
+                    </div>
+                </div>
+                
+                <div class="workout-card">
+                    <div class="workout-day">Wednesday</div>
+                    <div class="workout-title">Active Recovery</div>
+                    <ul class="workout-exercises">
+                        <li><span class="exercise-name">Light Cardio</span> <span class="exercise-detail">20 min</span></li>
+                        <li><span class="exercise-name">Stretching</span> <span class="exercise-detail">15 min</span></li>
+                        <li><span class="exercise-name">Foam Rolling</span> <span class="exercise-detail">10 min</span></li>
+                        <li><span class="exercise-name">Yoga</span> <span class="exercise-detail">20 min</span></li>
+                    </ul>
+                    <div class="workout-footer">
+                        <span class="workout-duration"><i class="fas fa-clock"></i> 30-45 min</span>
+                        <span class="workout-intensity"><i class="fas fa-fire"></i> Low</span>
+                    </div>
+                </div>
+                
+                <div class="workout-card">
+                    <div class="workout-day">Thursday</div>
+                    <div class="workout-title">Legs & Shoulders</div>
+                    <ul class="workout-exercises">
+                        <li><span class="exercise-name">Squats</span> <span class="exercise-detail">4 × 10</span></li>
+                        <li><span class="exercise-name">Leg Press</span> <span class="exercise-detail">3 × 12</span></li>
+                        <li><span class="exercise-name">Lunges</span> <span class="exercise-detail">3 × 10 each</span></li>
+                        <li><span class="exercise-name">Shoulder Press</span> <span class="exercise-detail">4 × 10</span></li>
+                        <li><span class="exercise-name">Lateral Raises</span> <span class="exercise-detail">3 × 15</span></li>
+                    </ul>
+                    <div class="workout-footer">
+                        <span class="workout-duration"><i class="fas fa-clock"></i> 60-75 min</span>
+                        <span class="workout-intensity"><i class="fas fa-fire"></i> Very High</span>
+                    </div>
+                </div>
+                
+                <div class="workout-card">
+                    <div class="workout-day">Friday</div>
+                    <div class="workout-title">Full Body HIIT</div>
+                    <ul class="workout-exercises">
+                        <li><span class="exercise-name">Burpees</span> <span class="exercise-detail">3 × 15</span></li>
+                        <li><span class="exercise-name">Mountain Climbers</span> <span class="exercise-detail">3 × 30 sec</span></li>
+                        <li><span class="exercise-name">Kettlebell Swings</span> <span class="exercise-detail">3 × 20</span></li>
+                        <li><span class="exercise-name">Box Jumps</span> <span class="exercise-detail">3 × 12</span></li>
+                        <li><span class="exercise-name">Battle Ropes</span> <span class="exercise-detail">3 × 30 sec</span></li>
+                    </ul>
+                    <div class="workout-footer">
+                        <span class="workout-duration"><i class="fas fa-clock"></i> 40-50 min</span>
+                        <span class="workout-intensity"><i class="fas fa-fire"></i> Intense</span>
+                    </div>
+                </div>
+                
+                <div class="workout-card">
+                    <div class="workout-day">Saturday</div>
+                    <div class="workout-title">Core & Cardio</div>
+                    <ul class="workout-exercises">
+                        <li><span class="exercise-name">Plank</span> <span class="exercise-detail">3 × 60 sec</span></li>
+                        <li><span class="exercise-name">Russian Twists</span> <span class="exercise-detail">3 × 20</span></li>
+                        <li><span class="exercise-name">Leg Raises</span> <span class="exercise-detail">3 × 15</span></li>
+                        <li><span class="exercise-name">Treadmill Intervals</span> <span class="exercise-detail">20 min</span></li>
+                    </ul>
+                    <div class="workout-footer">
+                        <span class="workout-duration"><i class="fas fa-clock"></i> 45-55 min</span>
+                        <span class="workout-intensity"><i class="fas fa-fire"></i> Moderate</span>
+                    </div>
+                </div>
+                
+                <div class="workout-card">
+                    <div class="workout-day">Sunday</div>
+                    <div class="workout-title">Rest Day</div>
+                    <ul class="workout-exercises">
+                        <li><span class="exercise-name">Light Walking</span> <span class="exercise-detail">20-30 min</span></li>
+                        <li><span class="exercise-name">Stretching</span> <span class="exercise-detail">15 min</span></li>
+                        <li><span class="exercise-name">Meditation</span> <span class="exercise-detail">10 min</span></li>
+                    </ul>
+                    <div class="workout-footer">
+                        <span class="workout-duration"><i class="fas fa-clock"></i> 30-40 min</span>
+                        <span class="workout-intensity"><i class="fas fa-fire"></i> Very Low</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Progress Update Modal -->
+    <div id="progressModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Update Progress</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="progressForm">
+                    <input type="hidden" id="progressType">
+                    <div class="form-group">
+                        <label for="progressDate">Date</label>
+                        <input type="date" id="progressDate" required>
+                    </div>
+                    <div id="strengthFields" class="progress-fields">
+                        <div class="form-group">
+                            <label for="exercise">Exercise</label>
+                            <select id="exercise">
+                                <option value="bench_press">Bench Press</option>
+                                <option value="squat">Squat</option>
+                                <option value="deadlift">Deadlift</option>
+                                <option value="overhead_press">Overhead Press</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="weight">Weight (kg)</label>
+                            <input type="number" id="strengthWeight" step="0.1" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="reps">Reps</label>
+                            <input type="number" id="reps" min="1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Notes</label>
+                        <textarea id="notes" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Save Progress</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Progress Button -->
+    <div class="add-progress-btn" onclick="openProgressModal()">
+        <i class="fas fa-plus"></i>
+    </div>
+
+    <script>
+        // Set current date
+        document.addEventListener('DOMContentLoaded', function() {
+            const date = new Date();
+            document.getElementById('currentDate').textContent = date.toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            
+            // Workout plan selection
+            document.getElementById('workoutPlanSelect').addEventListener('change', function() {
+                // In a real application, this would load different workout plans
+                console.log('Selected plan:', this.value);
+            });
+        });
+        
+        // Logout function
+        function logout() {
+            localStorage.removeItem('user');
+            window.location.href = 'index.html';
+        }
+
+        // Progress Tracking Functions
+        function openProgressModal(type = 'strength') {
+            const modal = document.getElementById('progressModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const progressType = document.getElementById('progressType');
+            const strengthFields = document.getElementById('strengthFields');
+
+            // Set modal title and type
+            progressType.value = type;
+            modalTitle.textContent = `Update ${type.charAt(0).toUpperCase() + type.slice(1)} Progress`;
+
+            // Show/hide relevant fields
+            strengthFields.style.display = type === 'strength' ? 'block' : 'none';
+
+            // Set today's date as default
+            document.getElementById('progressDate').valueAsDate = new Date();
+
+            modal.style.display = 'block';
+        }
+
+        // Close modal when clicking the X or outside the modal
+        document.querySelector('.close').onclick = function() {
+            document.getElementById('progressModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('progressModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Handle progress form submission
+        document.getElementById('progressForm').onsubmit = function(e) {
+            e.preventDefault();
+            
+            const user = JSON.parse(localStorage.getItem('user'));
+            const progressType = document.getElementById('progressType').value;
+            const date = document.getElementById('progressDate').value;
+            const notes = document.getElementById('notes').value;
+
+            let progressData = {
+                user_id: user.id,
+                date: date,
+                type: progressType,
+                notes: notes
+            };
+
+            // Add type-specific data
+            if (progressType === 'strength') {
+                progressData.strength = {
+                    exercise: document.getElementById('exercise').value,
+                    weight: document.getElementById('strengthWeight').value,
+                    reps: document.getElementById('reps').value
+                };
+            }
+
+            // Save progress to server
+            fetch('http://localhost:5500/progress/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(progressData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Progress updated successfully!');
+                    document.getElementById('progressModal').style.display = 'none';
+                } else {
+                    alert('Error updating progress: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error updating progress. Please try again.');
+            });
+        }
+    </script>
+</body>
+</html>
